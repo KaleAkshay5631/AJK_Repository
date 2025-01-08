@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AJK_Repository/FileContentIndex/24052e1d-c8db-4ed1-a08b-28530df10648.vsidx
+/.vs/AJK_Repository/FileContentIndex/3e632068-dfb5-49b9-9fa3-32ade41f176c.vsidx
+/.vs/AJK_Repository/FileContentIndex/511e9c10-c813-46e3-9e16-d962bc5585ab.vsidx
+/.vs/AJK_Repository/FileContentIndex/2b000264-5be3-4318-aba2-06d64cd1df7b.vsidx
+/.vs/AJK_Repository/FileContentIndex/5cc73985-4a33-40cc-be10-fd42b30e2291.vsidx
+/.vs/AJK_Repository/FileContentIndex/423cd208-5d66-4227-ac57-7125147e8e56.vsidx
+/.vs/AJK_Repository/FileContentIndex/2c83fa13-14f0-4467-bd59-238e65ae90e6.vsidx
+/.vs/AJK_Repository/FileContentIndex/74165302-0c43-4417-8606-5e58d2357253.vsidx
+/.vs/AJK_Repository/FileContentIndex/312479db-1e14-4934-a482-9c0dbeca2d16.vsidx
+/.vs/AJK_Repository/FileContentIndex/7881b327-d481-4015-966e-b9de6534944f.vsidx
+/.vs/AJK_Repository/FileContentIndex/6fea87e4-99bc-4da1-af72-43a068a88b91.vsidx
+*.vsidx
