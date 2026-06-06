@@ -23,7 +23,7 @@ namespace Kls.Plugins.Tests.CustomAPI
         [Fact]
         public void ExecuteDataversePlugin_NullLocalPluginContext_ThrowsWrappedArgumentNullException()
         {
-            var plugin = new Kls.Plugins.GeoCustomAPI.CallCustomAPI(string.Empty, string.Empty);
+            var plugin = new Kls.Plugins.CustomAPI.CallCustomAPI(string.Empty, string.Empty);
 
             var method = plugin.GetType().GetMethod("ExecuteDataversePlugin", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             Assert.NotNull(method);

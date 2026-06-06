@@ -5,7 +5,7 @@ using Kls.SharedServices.BaseClasses;
 using Kls.SharedServices.ModelClasses;
 using Kls.SharedServices.Services.APIMServices;
 
-namespace Kls.Plugins.GeoCustomAPI
+namespace Kls.Plugins.CustomAPI
 {
     public class CallCustomAPI : PluginBase
     {
@@ -40,21 +40,21 @@ namespace Kls.Plugins.GeoCustomAPI
                 // Required inputs
                 string endpointUrl =
                     GetInputParameterOrThrow<string>(
-                        executionContext, "kls_geoendpointurl");
+                        executionContext, "kls_endpointurl");
 
                 string httpMethod =
                     GetInputParameterOrThrow<string>(
-                        executionContext, "kls_geohttpmethod");
+                        executionContext, "kls_httpmethod");
 
                 // Optional inputs
                 string parameterObject =
-                    executionContext.InputParameters.Contains("kls_geoparameterobject")
-                        ? executionContext.InputParameters["kls_geoparameterobject"]?.ToString()
+                    executionContext.InputParameters.Contains("kls_parameterobject")
+                        ? executionContext.InputParameters["kls_parameterobject"]?.ToString()
                         : string.Empty;
 
                 string contextHeaders =
-                    executionContext.InputParameters.Contains("kls_geocontextheaders")
-                        ? executionContext.InputParameters["kls_geocontextheaders"]?.ToString()
+                    executionContext.InputParameters.Contains("kls_contextheaders")
+                        ? executionContext.InputParameters["kls_contextheaders"]?.ToString()
                         : string.Empty;
 
                 // Get secure config from shared variables
@@ -76,12 +76,12 @@ namespace Kls.Plugins.GeoCustomAPI
                     string serializedResponse =
                         JsonSerializer.Serialize(response);
 
-                    executionContext.OutputParameters["kls_georesponsevalue"] =
+                    executionContext.OutputParameters["kls_responsevalue"] =
                         serializedResponse;
                 }
                 else
                 {
-                    executionContext.OutputParameters["kls_georesponsevalue"] =
+                    executionContext.OutputParameters["kls_responsevalue"] =
                         JsonSerializer.Serialize(new APIMResponse
                         {
                             StatusCode = 500,
@@ -102,7 +102,7 @@ namespace Kls.Plugins.GeoCustomAPI
             if (pluginContext == null)
                 throw new ArgumentNullException(nameof(pluginContext));
 
-            string requiredMessage = "kls_GeoVMSAPICall";
+            string requiredMessage = "kls_VMSAPICall";
 
             IPluginExecutionContext executionContext =
                 pluginContext.PluginExecutionContext;

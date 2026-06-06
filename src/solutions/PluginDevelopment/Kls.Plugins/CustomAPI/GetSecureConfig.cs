@@ -5,7 +5,7 @@ using Kls.SharedServices.BaseClasses;
 using Kls.SharedServices.ModelClasses;
 using Kls.SharedServices.Services.APIMServices;
 
-namespace Kls.Geo.Plugins.GeoCustomAPI
+namespace Kls.Plugins.CustomAPI
 {
     /// <summary>
     /// Plugin that reads secure APIM configuration provided to the plugin and
@@ -84,7 +84,7 @@ namespace Kls.Geo.Plugins.GeoCustomAPI
                 throw new ArgumentNullException(nameof(pluginContext));
             }
 
-            const string requiredMessage = "kls_GeoVMSAPICall";
+            const string requiredMessage = "kls_VMSAPICall";
 
             IPluginExecutionContext executionContext = pluginContext.PluginExecutionContext;
 
