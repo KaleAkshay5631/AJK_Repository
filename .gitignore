@@ -13,3 +13,7 @@
 *.suo
 *.userosscache
 *.sln.docstates
+/repo_matches.txt
+/temp_file_list.txt
+/temp_matches.txt
+/to_untrack.txt
