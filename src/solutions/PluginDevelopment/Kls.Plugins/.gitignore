@@ -1,0 +1,79 @@
+# Visual Studio / .NET artifacts
+
+# User-specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+**/bin/
+obj/
+**/obj/
+
+# NuGet
+packages/
+**/packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+.nuget/
+
+# Publish output
+/publish/
+PublishProfiles/
+_PublishedWebsites/
+
+# Resharper
+_ReSharper*/
+*.ReSharper*/
+*.DotSettings.user
+
+# Rider
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+coverage*/
+
+# IIS Express
+/.vs/*/applicationHost.config
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Logs and databases
+*.log
+*.csv
+*.sqlite
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node / front-end
+node_modules/
+bower_components/
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# JetBrains
+*.iml
+
+# Ignore specific path referenced earlier
+src/solutions/PluginDevelopment/Kls.Plugins/packages/
+
+# If you need to keep any files from the above patterns, add an explicit negate rule (e.g., !path/to/file)

@@ -12,9 +12,16 @@
     <Folder Include="$(MSBuildThisFileDirectory)BaseClasses\" />
     <Folder Include="$(MSBuildThisFileDirectory)Interfaces\" />
     <Folder Include="$(MSBuildThisFileDirectory)ModelClasses\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\APIMServices\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)baseclasses\PluginBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)interfaces\IAPIMService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)modelclasses\APIMConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)modelclasses\APIMResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)modelclasses\AuthTokenResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)modelclasses\RequestContextHeaders.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)modelclasses\TokenInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)services\apimservices\APIMService.cs" />
   </ItemGroup>
 </Project>
