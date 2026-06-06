@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using Kls.Geo.Plugins.GeoCustomAPI;
+using Kls.Plugins.CustomAPI;
 using Xunit;
 
 namespace Kls.Plugins.Tests.CustomAPI
