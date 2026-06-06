@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AJK_Repository/CopilotIndices/17.14.698.11175
+/.vs/AJK_Repository/FileContentIndex
+/.vs/AJK_Repository/v17
+/.vs
+
+# Visual studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+/repo_matches.txt
+/temp_file_list.txt
+/temp_matches.txt
+/to_untrack.txt

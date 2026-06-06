@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../../../shared/kls.SharedServices/kls.SharedServices.shproj" Id="de65eb08-67f2-4972-91d5-e58c7bd046de" />
+  <Project Path="Kls.Plugins.csproj" Id="2a1a8740-59ae-42b7-8784-5071ffec3759" />
+</Solution>
