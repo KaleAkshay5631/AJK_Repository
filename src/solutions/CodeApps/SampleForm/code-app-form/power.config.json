@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "appId": "c1bb1702-8a49-4a09-9c36-9729fd57f9dc",
+  "appDisplayName": "Employee Registration App",
+  "region": "prod",
+  "environmentId": "718e236e-1a74-ed60-a68a-c24a467620a9",
+  "description": " ",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {}
+}

@@ -1,0 +1,23 @@
+{
+  "name": "code-app-form",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fluentui/react-components": "^9.x",
+    "@fluentui/react-icons": "^2.x",
+    "react": "^18.x",
+    "react-dom": "^18.x"
+  },
+  "devDependencies": {
+    "@types/react": "^18.x",
+    "@types/react-dom": "^18.x",
+    "@vitejs/plugin-react": "^4.x",
+    "typescript": "^5.x",
+    "vite": "^5.x"
+  }
+}
