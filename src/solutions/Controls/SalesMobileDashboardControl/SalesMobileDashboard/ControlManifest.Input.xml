@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="kls.SalesMobileDashboard" constructor="SalesMobileDashboard" version="6.0.0" display-name-key="Sales Mobile Dashboard" description-key="Home dashboard for Dynamics 365 Sales mobile users" control-type="standard" >
+  <control namespace="kls.SalesMobileDashboard" constructor="SalesMobileDashboard" version="1.0.0" display-name-key="Sales Mobile Dashboard" description-key="Home dashboard for Dynamics 365 Sales mobile users" control-type="standard" >
     <external-service-usage enabled="false" />
 
     <property
