@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="kls.SalesMobileDashboard" constructor="SalesMobileDashboard" version="1.0.0" display-name-key="Sales Mobile Dashboard" description-key="Home dashboard for Dynamics 365 Sales mobile users" control-type="standard" >
+    <external-service-usage enabled="false" />
+
+    <property
+      name="recordLimit"
+      display-name-key="Record Limit"
+      description-key="Maximum records rendered per section"
+      of-type="Whole.None"
+      usage="input"
+      required="false"
+    />
+
+    <property
+      name="lookAheadDays"
+      display-name-key="Appointment Look Ahead Days"
+      description-key="Number of days to query upcoming appointments"
+      of-type="Whole.None"
+      usage="input"
+      required="false"
+    />
+
+    <data-set
+      name="dashboardDataSet"
+      display-name-key="Dashboard Data Set"
+      description-key="Dataset required for table view hosting"
+      cds-data-set-options="displayCommandBar:false;displayViewSelector:false;displayQuickFind:false;displayGroupBy:false"
+    />
+
+    <resources>
+      <code path="index.ts" order="1" />
+    </resources>
+
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+  </control>
+</manifest>
