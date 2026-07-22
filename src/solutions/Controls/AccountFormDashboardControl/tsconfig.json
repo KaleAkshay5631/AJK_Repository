@@ -1,0 +1,15 @@
+{
+  "extends": "./node_modules/pcf-scripts/tsconfig_base.json",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "powerapps-component-framework",
+      "node"
+    ]
+  }
+}

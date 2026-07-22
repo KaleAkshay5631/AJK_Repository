@@ -22,6 +22,11 @@ const getWholeNumberInput = (value: number | null | undefined, fallback: number)
 export const App: React.FC<AppProps> = ({ context }) => {
   const recordLimit = getWholeNumberInput(context.parameters.recordLimit.raw, DEFAULT_RECORD_LIMIT);
   const lookAheadDays = getWholeNumberInput(context.parameters.lookAheadDays.raw, DEFAULT_LOOK_AHEAD_DAYS);
+  const layoutMode = context.client.getFormFactor() === 1 ? "web" : "mobile";
+  const powerBiEmbedUrl = context.parameters.powerBiEmbedUrl.raw ?? "";
+  const powerBiReportId = context.parameters.powerBiReportId.raw ?? "";
+  const powerBiAccessToken = context.parameters.powerBiAccessToken.raw ?? "";
+  const powerBiTokenType = context.parameters.powerBiTokenType.raw ?? "1";
 
   const service = React.useMemo(() => new DataverseService(context), [context]);
   const { state, reload } = useDashboardData(service, recordLimit, lookAheadDays);
@@ -50,6 +55,11 @@ export const App: React.FC<AppProps> = ({ context }) => {
   return (
     <DashboardShell
       state={state}
+      layoutMode={layoutMode}
+      powerBiEmbedUrl={powerBiEmbedUrl}
+      powerBiReportId={powerBiReportId}
+      powerBiAccessToken={powerBiAccessToken}
+      powerBiTokenType={powerBiTokenType}
       onRefresh={reload}
       onCreateAccount={onCreateAccount}
       onCreateOpportunity={onCreateOpportunity}

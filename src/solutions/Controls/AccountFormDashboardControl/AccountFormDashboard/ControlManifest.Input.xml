@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="kls.AccountFormDashboard" constructor="AccountFormDashboard" version="1.0.0" display-name-key="Account Form Dashboard" description-key="Responsive account insights dashboard for model-driven account forms" control-type="standard" >
+    <external-service-usage enabled="false" />
+
+    <property
+      name="controlValue"
+      display-name-key="Control Value"
+      description-key="Bound single line text column used to host the PCF on account form"
+      of-type="SingleLine.Text"
+      usage="bound"
+      required="true"
+    />
+
+    <property
+      name="activityLimit"
+      display-name-key="Recent Activity Limit"
+      description-key="Maximum recent activities to display"
+      of-type="Whole.None"
+      usage="input"
+      required="false"
+    />
+
+    <resources>
+      <code path="index.ts" order="1" />
+    </resources>
+
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+  </control>
+</manifest>
