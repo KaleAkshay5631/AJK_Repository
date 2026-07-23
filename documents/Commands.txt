@@ -1,0 +1,40 @@
+Create PCF Control
+	pac pcf init --namespace kls.SearchForm --name SearchForm --template field
+
+Install Node Module
+	npm install 
+	npm install @fluentui/react 
+	npm install react react-dom
+
+Build Debug Mode
+	npm run build
+
+Build Prod Mode
+	npm run build --buildMode release
+
+Start/test
+	npm start
+	npm start watch
+
+Create Solution - Inside solution folder
+	pac solution init --publisher-name kales Labs --publisher-prefix kls
+
+Add reference of PCF control - Inside solution folder
+	pac solution add-reference --path C:\Repo\PCFControlRepo\src\solutions\Controls\SalesMobileDashboardControl
+
+Restore NuGet packages
+	msbuild/restore   or   dotnet restore 
+
+Build PCF Control in Development Mode
+	msbuild/t:Build   or    dotnet build
+
+Build PCF Control in Prod Mode
+	msbuild/t:Build/p:Configuration=Release
+
+
+Direct Deployment using PAC command
+	pac auth create
+	pac org list
+	pac org select --environment 718e236e-1a74-ed60-a68a-c24a467620a9
+	pac pcf push --publisher-prefix kls
+
