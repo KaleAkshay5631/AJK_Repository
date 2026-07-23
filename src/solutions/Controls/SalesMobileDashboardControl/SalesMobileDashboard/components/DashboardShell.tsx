@@ -4,11 +4,18 @@ import type { DashboardLoadState } from "../types";
 import { salesMobileTheme } from "../styles/theme";
 import { AccountsSection } from "./AccountsSection";
 import { AppointmentsSection } from "./AppointmentsSection";
+import { PowerBIIframeSection } from "./PowerBIIframeSection";
+import { PowerBIReportSection } from "./PowerBIReportSection";
 import { QuickActionsSection } from "./QuickActionsSection";
 import { RevenueAnalyticsSection } from "./RevenueAnalyticsSection";
 
 interface DashboardShellProps {
   state: DashboardLoadState;
+  layoutMode: "web" | "mobile";
+  powerBiEmbedUrl: string;
+  powerBiReportId: string;
+  powerBiAccessToken: string;
+  powerBiTokenType: string;
   onRefresh: () => Promise<void>;
   onCreateAccount: () => Promise<void>;
   onCreateOpportunity: () => Promise<void>;
@@ -30,7 +37,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     gap: tokens.spacingVerticalM,
-    padding: tokens.spacingHorizontalM,
+    padding: "5px",
     boxSizing: "border-box",
     "@media screen and (min-width: 768px)": {
       padding: tokens.spacingHorizontalL,
@@ -43,6 +50,11 @@ const useStyles = makeStyles({
 
 export const DashboardShell: React.FC<DashboardShellProps> = ({
   state,
+  layoutMode,
+  powerBiEmbedUrl,
+  powerBiReportId,
+  powerBiAccessToken,
+  powerBiTokenType,
   onRefresh,
   onCreateAccount,
   onCreateOpportunity,
@@ -82,12 +94,21 @@ export const DashboardShell: React.FC<DashboardShellProps> = ({
 
         <RevenueAnalyticsSection item={state.data.revenue} isLoading={state.isLoading} />
 
+        {/* <PowerBIReportSection
+          embedUrl={powerBiEmbedUrl}
+          reportId={powerBiReportId}
+          accessToken={powerBiAccessToken}
+          tokenType={powerBiTokenType}
+        /> */}
+        <PowerBIIframeSection layoutMode={layoutMode} />
+        
         <QuickActionsSection
           onCreateAccount={onCreateAccount}
           onCreateOpportunity={onCreateOpportunity}
           onCreateAppointment={onCreateAppointment}
           onRefresh={onRefresh}
         />
+
       </div>
     </FluentProvider>
   );

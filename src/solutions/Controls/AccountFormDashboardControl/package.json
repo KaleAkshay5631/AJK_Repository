@@ -1,7 +1,7 @@
 {
-  "name": "sales-mobile-dashboard-control",
+  "name": "account-form-dashboard-control",
   "version": "1.0.0",
-  "description": "PCF home dashboard control for Dynamics 365 Sales mobile app.",
+  "description": "PCF account dashboard control for model-driven account forms.",
   "scripts": {
     "build": "pcf-scripts build",
     "clean": "pcf-scripts clean",
@@ -15,8 +15,6 @@
   "dependencies": {
     "@fluentui/react-components": "^9.63.0",
     "@fluentui/react-icons": "^2.0.301",
-    "powerbi-client": "^2.24.1",
-    "powerbi-models": "^2.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

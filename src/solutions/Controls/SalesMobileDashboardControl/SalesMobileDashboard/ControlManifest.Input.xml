@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="kls.SalesMobileDashboard" constructor="SalesMobileDashboard" version="1.0.0" display-name-key="Sales Mobile Dashboard" description-key="Home dashboard for Dynamics 365 Sales mobile users" control-type="standard" >
-    <external-service-usage enabled="false" />
+  <control namespace="kls.SalesMobileDashboard" constructor="SalesMobileDashboard" version="6.0.0" display-name-key="Sales Mobile Dashboard" description-key="Home dashboard for Dynamics 365 Sales mobile users" control-type="standard" >
+    <external-service-usage enabled="true">
+      <domain>app.powerbi.com</domain>
+    </external-service-usage>
 
     <property
       name="recordLimit"
@@ -21,6 +23,42 @@
       required="false"
     />
 
+    <property
+      name="powerBiEmbedUrl"
+      display-name-key="Power BI Embed Url"
+      description-key="Embed URL for the Power BI report"
+      of-type="SingleLine.Text"
+      usage="input"
+      required="false"
+    />
+
+    <property
+      name="powerBiReportId"
+      display-name-key="Power BI Report Id"
+      description-key="Report ID for the Power BI report"
+      of-type="SingleLine.Text"
+      usage="input"
+      required="false"
+    />
+
+    <property
+      name="powerBiAccessToken"
+      display-name-key="Power BI Access Token"
+      description-key="Access token used to embed the Power BI report"
+      of-type="Multiple"
+      usage="input"
+      required="false"
+    />
+
+    <property
+      name="powerBiTokenType"
+      display-name-key="Power BI Token Type"
+      description-key="Token type: 0 for AAD, 1 for Embed"
+      of-type="SingleLine.Text"
+      usage="input"
+      required="false"
+    />
+
     <data-set
       name="dashboardDataSet"
       display-name-key="Dashboard Data Set"
@@ -34,6 +72,7 @@
 
     <feature-usage>
       <uses-feature name="WebAPI" required="true" />
+      <uses-feature name="PowerAppsComponentFramework" required="false" />
     </feature-usage>
   </control>
 </manifest>
