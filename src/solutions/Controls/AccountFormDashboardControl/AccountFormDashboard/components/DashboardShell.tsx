@@ -4,6 +4,7 @@ import type { DashboardLoadState } from "../types";
 import { salesMobileTheme } from "../styles/theme";
 import { AccountSummarySection } from "./AccountSummarySection";
 import { AlertsSection } from "./AlertsSection";
+import { CasesSection } from "./CasesSection";
 import { CustomerHealthScoreSection } from "./CustomerHealthScoreSection";
 import { KpiCardsSection } from "./KpiCardsSection";
 import { RelationshipHealthSection } from "./RelationshipHealthSection";
@@ -16,13 +17,14 @@ interface DashboardShellProps {
   onRefresh: () => Promise<void>;
 }
 
-type SectionKey = "accountSummary" | "alerts" | "customerHealthScore" | "kpis" | "relationshipHealth" | "recentActivities";
+type SectionKey = "accountSummary" | "alerts" | "customerHealthScore" | "kpis" | "cases" | "relationshipHealth" | "recentActivities";
 
 const INITIAL_SECTION_STATE: Record<SectionKey, boolean> = {
   accountSummary: true,
   alerts: false,
   customerHealthScore: false,
   kpis: false,
+  cases: false,
   relationshipHealth: false,
   recentActivities: false,
 };
@@ -131,6 +133,13 @@ export const DashboardShell: React.FC<DashboardShellProps> = ({
           isLoading={state.isLoading}
           isExpanded={expandedSections.kpis}
           onToggleExpand={() => toggleSection("kpis")}
+        />
+
+        <CasesSection
+          cases={state.data.cases}
+          isLoading={state.isLoading}
+          isExpanded={expandedSections.cases}
+          onToggleExpand={() => toggleSection("cases")}
         />
 
         <RelationshipHealthSection

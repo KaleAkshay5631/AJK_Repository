@@ -31,6 +31,15 @@ export interface KpiData {
   daysSinceLastActivity: number | null;
 }
 
+export interface AccountCase {
+  id: string;
+  title: string;
+  ticketNumber: string;
+  priority: string;
+  status: string;
+  createdOnUtc: string;
+}
+
 export interface RelationshipHealth {
   score: number;
   status: string;
@@ -41,6 +50,7 @@ export interface DashboardData {
   accountSummary: AccountSummary;
   alerts: AlertItem[];
   kpis: KpiData;
+  cases: AccountCase[];
   relationshipHealth: RelationshipHealth;
   recentActivities: RecentActivity[];
 }

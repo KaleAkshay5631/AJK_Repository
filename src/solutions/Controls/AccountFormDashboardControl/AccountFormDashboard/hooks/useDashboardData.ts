@@ -19,6 +19,7 @@ const EMPTY_DATA: DashboardData = {
     openCases: 0,
     daysSinceLastActivity: null,
   },
+  cases: [],
   relationshipHealth: {
     score: 0,
     status: "Unavailable",

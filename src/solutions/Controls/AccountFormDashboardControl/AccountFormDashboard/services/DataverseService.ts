@@ -1,5 +1,5 @@
 import type { IInputs } from "../generated/ManifestTypes";
-import type { AccountSummary, AlertItem, DashboardData, KpiData, RecentActivity, RelationshipHealth } from "../types";
+import type { AccountCase, AccountSummary, AlertItem, DashboardData, KpiData, RecentActivity, RelationshipHealth } from "../types";
 
 interface DataverseCollectionResponse<TRecord> {
   entities: TRecord[];
@@ -50,6 +50,7 @@ export class DataverseService {
           },
         ],
         kpis: EMPTY_KPIS,
+        cases: [],
         relationshipHealth: EMPTY_RELATIONSHIP_HEALTH,
         recentActivities: [],
       };
@@ -70,6 +71,7 @@ export class DataverseService {
       accountSummary,
       alerts,
       kpis,
+      cases: openCases,
       relationshipHealth,
       recentActivities,
     };
@@ -120,10 +122,12 @@ export class DataverseService {
     }
   }
 
-  private async getOpenCases(accountId: string): Promise<number> {
+  private async getOpenCases(accountId: string): Promise<AccountCase[]> {
     const query = [
-      "?$select=incidentid,statecode",
+      "?$select=incidentid,title,ticketnumber,prioritycode,statecode,statuscode,createdon",
       `&$filter=_customerid_value eq ${accountId} and statecode eq 0`,
+      "&$orderby=createdon desc",
+      "&$top=15",
     ].join("");
 
     try {
@@ -131,10 +135,26 @@ export class DataverseService {
         "incident",
         query
       )) as DataverseCollectionResponse<DataverseRecord>;
-      return result.entities.length;
+
+      return result.entities.map((record) => ({
+        id: String(record["incidentid"] ?? ""),
+        title: String(record["title"] ?? "Untitled case"),
+        ticketNumber: String(record["ticketnumber"] ?? "No ticket"),
+        priority: String(
+          record["prioritycode@OData.Community.Display.V1.FormattedValue"] ??
+          record["prioritycode"] ??
+          "Unknown"
+        ),
+        status: String(
+          record["statuscode@OData.Community.Display.V1.FormattedValue"] ??
+          record["statecode@OData.Community.Display.V1.FormattedValue"] ??
+          "Open"
+        ),
+        createdOnUtc: String(record["createdon"] ?? ""),
+      }));
     } catch (error) {
       console.error("Unable to retrieve open cases", error);
-      return 0;
+      return [];
     }
   }
 
@@ -175,7 +195,7 @@ export class DataverseService {
     }
   }
 
-  private getKpis(opportunities: DataverseRecord[], openCases: number, activities: RecentActivity[]): KpiData {
+  private getKpis(opportunities: DataverseRecord[], openCases: AccountCase[], activities: RecentActivity[]): KpiData {
     const openPipelineValue = opportunities.reduce((sum, opportunity) => {
       return sum + Number(opportunity["estimatedvalue"] ?? 0);
     }, 0);
@@ -186,7 +206,7 @@ export class DataverseService {
     return {
       openOpportunities: opportunities.length,
       openPipelineValue,
-      openCases,
+      openCases: openCases.length,
       daysSinceLastActivity,
     };
   }
